@@ -33,7 +33,7 @@ class UpdateBookSub extends Controller
             $BookSub->status = 1;
             $BookSub->save();
 
-            //sql2asdhdas
+
             $Book = Book::where("book_id", "=", $idBook)->first();
 
             $soLuongSach = $Book->remain;
