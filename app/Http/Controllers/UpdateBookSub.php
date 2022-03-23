@@ -40,10 +40,8 @@ class UpdateBookSub extends Controller
             $Book->remain = $soLuongSach - $quanlity;
             $Book->save();
 
-            // $classes = Classes::where("cl_name", "=", $nameClass)->first();
-            // return $idBook . $nameClass;
-            // return $idBook . $nameClass . $quanlity;
-            return Redirect::route("book.show");
+
+            return Redirect::route("book.show", $idBook);
         }
     }
 }
