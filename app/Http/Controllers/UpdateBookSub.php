@@ -24,7 +24,7 @@ class UpdateBookSub extends Controller
         if ($quanlity > $re) {
             return Redirect::route("errorQuantity")->with('id_book', $idBook);
         } else {
-            $BookS = BookSub::join("students", "students.stu_id", "=", "booksubscription.stu_id")->join("classes", "classes.cl_id", "=", "students.cl_id")->where("classes.cl_name", "=", $nameClass)->where("booksubscription.book_id", "=", $idBook)->select("booksubscription.*")->get();
+            $BookS = BookSub::join("students", "students.stu_id", "=", "booksubscription.stu_id")->join("classes", "classes.cl_id", "=", "students.cl_id")->where("classes.cl_name", "=", $nameClass)->where("booksubscription.bookid", "=", $idBook)->select("booksubscription.*")->get();
 
             // $Class = Classes::where("cl_name", "=", $nameClass)->first();
             // $idClass = $Class->cl_id;

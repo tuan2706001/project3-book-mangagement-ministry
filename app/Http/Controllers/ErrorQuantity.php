@@ -12,11 +12,11 @@ class ErrorQuantity extends Controller
     {
         $id = $request->session()->get('id_book');
         $sumcount = BookSub::where('status', '=', 0)
-            ->where('book_id', '=', $id)
+            ->where('bookid', '=', $id)
             ->count();
 
 
-        $count = DB::select('SELECT classes.cl_name,COUNT(classes.cl_id) AS soLuong from booksubscription JOIN students on booksubscription.stu_id = students.stu_id JOIN classes ON classes.cl_id = students.cl_id WHERE booksubscription.book_id = :idBook  AND booksubscription.status = 0 GROUP BY (classes.cl_name)', ['idBook' => $id]);
+        $count = DB::select('SELECT classes.cl_name,COUNT(classes.cl_id) AS soLuong from booksubscription JOIN students on booksubscription.stu_id = students.stu_id JOIN classes ON classes.cl_id = students.cl_id WHERE booksubscription.bookid = :idBook  AND booksubscription.status = 0 GROUP BY (classes.cl_name)', ['idBook' => $id]);
         return view('book.show', [
             "sumcount" => $sumcount,
             "count" => $count,

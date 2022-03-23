@@ -26,7 +26,7 @@ class BookSubController extends Controller
         $class = Classes::all();
         $search = $request->get('search');
         $books = DB::table('booksubscription')
-            ->join('book', 'book.book_id', '=', 'booksubcription.book_id')
+            ->join('book', 'book.book_id', '=', 'booksubcription.bookid')
             ->join('students', 'booksubcription.stu_id', '=', 'students.stu_id')
             ->join('classes', 'classes.cl_id', '=', 'students.cl_id')
             ->where('book_title', 'like', "%$search%")->orderBy('book_id', 'asc')

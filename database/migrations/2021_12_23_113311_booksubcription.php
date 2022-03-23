@@ -15,9 +15,9 @@ class Booksubcription extends Migration
     {
         Schema::create('booksubscription', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('book_id');
+            $table->unsignedInteger('bookid');
             $table->unsignedInteger('stu_id');
-            $table->foreign('book_id')->references('book_id')->on('books');
+            $table->foreign('bookid')->references('book_id')->on('books');
             $table->foreign('stu_id')->references('stu_id')->on('students');
         });
     }
