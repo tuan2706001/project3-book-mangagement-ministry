@@ -16,6 +16,7 @@ use App\Http\Controllers\BookTypeController;
 use App\Http\Controllers\BookSubController;
 use App\Http\Controllers\UpdateBookSub;
 use App\Http\Controllers\ErrorQuantity;
+use App\Http\Controllers\SubjectInfoController;
 use App\Http\Middleware\CheckLogin;
 
 /*
@@ -63,3 +64,4 @@ Route::resource('booksub', BookSubController::class);
 
 Route::get('errorQuantity', [ErrorQuantity::class, 'showError'])->name("errorQuantity");
 Route::get('updatebooksub', [UpdateBookSub::class, 'updateStatus'])->name("updateStatusBookSub");
+Route::get('showSubjectList', [SubjectInfoController::class, 'showsubjectlist'])->name('showSubjectList');

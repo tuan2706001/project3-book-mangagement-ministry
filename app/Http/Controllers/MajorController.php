@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Major;
+use App\Models\SubjectInfo;
+use App\Models\Subject;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -54,10 +57,19 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        $major = Major::find($id);
-        return $major;
+        $idMajor = $id;
+        $subject = Subject::all();
+        $subjectinfo = DB::table('subjectinfo')
+            ->join('major', 'major.ma_id', '=', 'subjectinfo.ma_id')
+            ->join('subject', 'subject.sub_id', '=', 'subjectinfo.sub_id')
+            ->select('subjectinfo.sub_id', 'subject.sub_name', 'subject.duration', 'major.ma_name')->where('major.ma_id', '=', $idMajor)->get();
+
+        return view('major.show', [
+            "subjectinfo" => $subjectinfo,
+
+        ]);
     }
 
     /**
