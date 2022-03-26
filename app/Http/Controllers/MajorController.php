@@ -69,7 +69,8 @@ class MajorController extends Controller
 
         return view('major.show', [
             "subjectinfo" => $subjectinfo,
-            "count" => $count
+            "count" => $count,
+            "idMajor" => $idMajor
         ]);
     }
 

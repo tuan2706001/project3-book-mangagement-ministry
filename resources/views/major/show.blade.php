@@ -15,6 +15,7 @@
             
             <div class="text-right">
                 <a href="{{ route('subject.create') }}" class="btn btn-success btn-fill btn-wd">Thêm môn học mới</a>
+                <a href="{{ route('CreateSubjectMajor',['major' =>$idMajor])  }}" class="btn btn-success btn-fill btn-wd">Thêm môn học cho ngành</a>
             </div>  
             <div class="text-right" >
                 <h3>Tổng số môn học của ngành: {{$count}} </h3>
@@ -26,9 +27,7 @@
                     <th>STT</th>
                     <th>Tên môn học</th>
                     <th>Thời lượng môn học</th>
-                    <th>Hành động</th>
-                    
-                    
+               
                 </thead>
                 <tbody>
                     @php
@@ -39,10 +38,7 @@
                             <td>{{$index+=1}}</td> 
                             <td>{{$subjects->sub_name}}</td> 
                             <td>{{$subjects->duration}}H</td>
-                            <td>
-                                <a rel="tooltip" data-original-title="Sửa"class="btn btn-warning ti-pencil-alt" href="{{ route('subject.edit',['subject' =>$subjects->sub_id]) }}"></a>
-                                
-                            </td>
+                            
                             
                         </tr> 
                     @endforeach                                       

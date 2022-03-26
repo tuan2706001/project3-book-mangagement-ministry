@@ -64,4 +64,5 @@ Route::resource('booksub', BookSubController::class);
 
 Route::get('errorQuantity', [ErrorQuantity::class, 'showError'])->name("errorQuantity");
 Route::get('updatebooksub', [UpdateBookSub::class, 'updateStatus'])->name("updateStatusBookSub");
-Route::get('showSubjectList', [SubjectInfoController::class, 'showsubjectlist'])->name('showSubjectList');
+Route::get('CreateSubjectMajor', [SubjectInfoController::class, 'CreateSubjectMajor'])->name('CreateSubjectMajor');
+Route::get('StoreSubjectMajor', [SubjectInfoController::class, 'StoreSubjectMajor'])->name('StoreSubjectMajor');
