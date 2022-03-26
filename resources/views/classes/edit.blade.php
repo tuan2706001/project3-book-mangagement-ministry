@@ -6,7 +6,7 @@
             @csrf 
             <div class="card-header">
                 <h4 class="card-title">
-                    Sửa ngành học
+                    Sửa lớp học
                 </h4>
             </div>
             <div class="card-content">

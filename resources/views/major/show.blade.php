@@ -10,10 +10,16 @@
                             <span class="input-group-addon"><i class="fa fa-search"></i></span>
                             <input type="text" value="" name="search" class="form-control" placeholder="Search...">
                         </div>
+                        
             </form> 
+            
             <div class="text-right">
                 <a href="{{ route('subject.create') }}" class="btn btn-success btn-fill btn-wd">Thêm môn học mới</a>
-            </div>                          
+            </div>  
+            <div class="text-right" >
+                <h3>Tổng số môn học của ngành: {{$count}} </h3>
+               
+            </div>                       
         <div class="card-content table-responsive table-full-width">
             <table class="table table-striped">
                 <thead>

@@ -59,6 +59,7 @@ class MajorController extends Controller
      */
     public function show(Request $request, $id)
     {
+        $count = SubjectInfo::where('ma_id', '=', $id)->count();;
         $idMajor = $id;
         $subject = Subject::all();
         $subjectinfo = DB::table('subjectinfo')
@@ -68,7 +69,7 @@ class MajorController extends Controller
 
         return view('major.show', [
             "subjectinfo" => $subjectinfo,
-
+            "count" => $count
         ]);
     }
 
@@ -109,7 +110,7 @@ class MajorController extends Controller
      */
     public function destroy($id)
     {
-        Major::find($id)->delete();
-        return Redirect::route('major.index');
+        SubjectInfo::find($id)->delete();
+        return view('major.show');
     }
 }
